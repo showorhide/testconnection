@@ -1,0 +1,38 @@
+{
+	"name": "countrydata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakegen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "countrydata.csv",
+				"folderPath": "country",
+				"fileSystem": "examplecontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "Attribute1",
+				"type": "String"
+			},
+			{
+				"name": "contrycode",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,86 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('for_each_array')",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "variable",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Filter1",
+							"type": "Filter",
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"items": {
+									"value": "@variables('filter_array')",
+									"type": "Expression"
+								},
+								"condition": {
+									"value": "@equals(item(),variables('variable'))",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"for_each_array": {
+				"type": "Array",
+				"defaultValue": [
+					"a",
+					"b",
+					"c",
+					"d",
+					"e"
+				]
+			},
+			"filter_array": {
+				"type": "Array",
+				"defaultValue": [
+					"e",
+					"f",
+					"g",
+					"h",
+					"i"
+				]
+			},
+			"variable": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-12-30T09:37:34Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

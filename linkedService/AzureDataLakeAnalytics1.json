@@ -1,0 +1,16 @@
+{
+	"name": "AzureDataLakeAnalytics1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeAnalytics",
+		"typeProperties": {
+			"accountName": "stevedatalakeanalytics",
+			"servicePrincipalId": "540cc18c-9971-45bd-b67d-0e1c106c49d4",
+			"tenant": "e4c9ab4e-bd27-40d5-8459-230ba2a757fb",
+			"subscriptionId": "e5b0fcfa-e859-43f3-8d84-5e5fe29f4c68",
+			"resourceGroupName": "steve",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlNURVZFREFUQUZBQ1RPUllfNmI3YmY0ODUtN2QyOC00NTE1LTg1NTctMzVjNGMwNDk0MTRmIg0KfQ=="
+		}
+	}
+}

@@ -1,0 +1,139 @@
+{
+	"name": "pipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "RBC",
+					"value": {
+						"value": "@variables('RIC')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "result",
+					"value": {
+						"value": "@replace(string(variables('RBC')),'\\','')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "array",
+					"value": {
+						"value": "@json(substring(variables('result'),2,24))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append variable2",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "Append variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "array",
+					"value": {
+						"value": "@json(substring(variables('result'),30,26))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Lookup2",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Append variable2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "POST",
+							"requestBody": {
+								"value": "@{concat('{\"GetSignificantDevelopments_Request_1\":{\"FindRequest\":{\"CompanyIdentifiers_typehint\":[\"CompanyIdentifiers\",\"CompanyIdentifiers\"],\"CompanyIdentifiers\":[',json(substring(variables('result'),2,24)),',',json(substring(variables('result'),30,26)),'],\"StartDate\": \"2021-01-05T00:00:00\",\"EndDate\": \"2021-01-06T00:00:00\",\"Significance\": \"1 2 3\",\"MaxNumberOfItems\": 100}}}')}",
+								"type": "Expression"
+							},
+							"requestTimeout": ""
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "httpjson",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"variables": {
+			"RIC": {
+				"type": "String",
+				"defaultValue": "[\"{\\\"RIC\\\":{\\\"Value\\\":\\\"FHN.N\\\"}}\",\"{\\\"RIC\\\":{\\\"Value\\\":\\\"0142.HK\\\"}}\"]"
+			},
+			"RBC": {
+				"type": "String"
+			},
+			"result": {
+				"type": "String"
+			},
+			"array": {
+				"type": "Array"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-01-07T06:36:16Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
