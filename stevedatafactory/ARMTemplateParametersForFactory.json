@@ -4,6 +4,129 @@
 	"parameters": {
 		"factoryName": {
 			"value": "stevedatafactory"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeAnalytics1_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_servicePrincipalCredential": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"AzureFunction2_functionKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"CosmosDb1_connectionString": {
+			"value": ""
+		},
+		"CosmosDb2_connectionString": {
+			"value": ""
+		},
+		"Office3651_servicePrincipalKey": {
+			"value": ""
+		},
+		"Sftp1_password": {
+			"value": ""
+		},
+		"datalakegen2_accountKey": {
+			"value": ""
+		},
+		"linkedService1_servicePrincipalKey": {
+			"value": ""
+		},
+		"AzureBlobStorage2_sasUri": {
+			"value": ""
+		},
+		"AzureDataLakeAnalytics1_properties_typeProperties_accountName": {
+			"value": "stevedatalakeanalytics"
+		},
+		"AzureDataLakeAnalytics1_properties_typeProperties_servicePrincipalId": {
+			"value": "540cc18c-9971-45bd-b67d-0e1c106c49d4"
+		},
+		"AzureDataLakeAnalytics1_properties_typeProperties_tenant": {
+			"value": "e4c9ab4e-bd27-40d5-8459-230ba2a757fb"
+		},
+		"AzureDataLakeAnalytics1_properties_typeProperties_subscriptionId": {
+			"value": "e5b0fcfa-e859-43f3-8d84-5e5fe29f4c68"
+		},
+		"AzureDataLakeAnalytics1_properties_typeProperties_resourceGroupName": {
+			"value": "steve"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://stevelakegen2.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_tenant": {
+			"value": "e4c9ab4e-bd27-40d5-8459-230ba2a757fb"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_servicePrincipalId": {
+			"value": "540cc18c-9971-45bd-b67d-0e1c106c49d4"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://stevecsharpfunction.azurewebsites.net"
+		},
+		"AzureFunction2_properties_typeProperties_functionAppUrl": {
+			"value": "https://stevecsharp2function.azurewebsites.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_servicePrincipalId": {
+			"value": "540cc18c-9971-45bd-b67d-0e1c106c49d4"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_tenant": {
+			"value": "e4c9ab4e-bd27-40d5-8459-230ba2a757fb"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "http://localhost:8080/test/bulk"
+		},
+		"Office3651_properties_typeProperties_servicePrincipalId": {
+			"value": "540cc18c-9971-45bd-b67d-0e1c106c49d4"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "http://localhost:8080/test/Test?parameter=@linkedService().variable"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "http://localhost:8080/test/Test"
+		},
+		"Sftp1_properties_typeProperties_host": {
+			"value": "20.72.161.40"
+		},
+		"Sftp1_properties_typeProperties_userName": {
+			"value": "steve"
+		},
+		"datalakegen2_properties_typeProperties_url": {
+			"value": "https://stevelakegen2.dfs.core.windows.net"
+		},
+		"linkedService1_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://stevedatalakegen1.azuredatalakestore.net/webhdfs/v1"
+		},
+		"linkedService1_properties_typeProperties_servicePrincipalId": {
+			"value": "540cc18c-9971-45bd-b67d-0e1c106c49d4"
+		},
+		"linkedService1_properties_typeProperties_tenant": {
+			"value": "e4c9ab4e-bd27-40d5-8459-230ba2a757fb"
+		},
+		"linkedService1_properties_typeProperties_subscriptionId": {
+			"value": "e5b0fcfa-e859-43f3-8d84-5e5fe29f4c68"
+		},
+		"linkedService1_properties_typeProperties_resourceGroupName": {
+			"value": "steve"
 		}
 	}
 }
